@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="{% url 'rent.insert' %}">
+        {% csrf_token %}
+        <input type="text" placeholder="user" name="user"> <br><br>
+        <input type="text" placeholder="bike" name="bike"> <br><br>
+        <input type="date" placeholder="starts" name="starts"> <br><br>
+        <input type="date" placeholder="ends" name="ends"> <br><br>
+        <input type="text" placeholder="status(As cancel)" name="status"> <br><br>
+        <input type="text" placeholder="note(str)" name="note"> <br><br>
+        <input type="text" placeholder="price(int)" name="price"> <br><br>
+         <input type="submit" value="send !">
+    </form>
+</body>
+</html>

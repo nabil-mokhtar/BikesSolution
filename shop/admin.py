@@ -8,4 +8,4 @@ admin.site.register(product)
 
 admin.site.register(Service)
 
-admin.site.register(RentUser)
+# admin.site.register(RentUser)
