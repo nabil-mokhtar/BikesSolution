@@ -4,7 +4,7 @@ from django.db import models
 
 class branches(models.Model):
     name=models.CharField(max_length=20)
-    admin=models.CharField(max_length=20)  #relation to admins 
+    admin=models.CharField(max_length=20)  #relation to admins
     def __str__(self):
         return self.name
 
@@ -34,7 +34,7 @@ class RentUser(models.Model):
     phone=models.IntegerField()
     adress=models.CharField(max_length=30)
     idImage=models.ImageField()
-    
+
     def __str__(self):
         return self.name
 
@@ -72,4 +72,3 @@ class RentRecords(models.Model):
 
     def __str__(self):
         return self.status
-

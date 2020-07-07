@@ -18,3 +18,16 @@ class RentViewSet(viewsets.ModelViewSet):
         newest = self.get_queryset() # .order_by('created').last()
         serializer = self.get_serializer_class()(newest)
         return Response(serializer.data)
+
+    @action(methods=['post'], detail=True)
+    def store(self, request):
+        new=models.RentRecords()
+        new.customer=models.RentUser(id=1)
+        new.bike= models.Bike(id=1)
+        new.starts= request.POST['starts']
+        new.ends= request.POST['ends']
+        new.status= request.POST['status'] #must be post-now
+        new.note= request.POST['note']
+        new.price= request.POST['price']
+        new.save()
+        return HttpResponse('hello')
