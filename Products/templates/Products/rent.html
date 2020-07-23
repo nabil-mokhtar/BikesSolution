@@ -1,0 +1,404 @@
+<!-- {%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Shereif is store service bicycle and offer spare parts one of the best of the field.">
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/normalize.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/grid.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/ionicons.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/animate.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'resources/css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'resources/css/queries.css' %}">
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+  <title>Rent</title>
+
+</head>
+<header>
+  <script type="text/javascript" src="{% static 'bootstrap.min.js' %}"></script>
+
+  <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'Home:home' %}">
+      <img src="{% static 'resources/img/logo.png' %}" width="60" height="60" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Home:home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Products:product_list' %}">Buy <span class="sr-only">(current)</span></a>
+        </li>
+
+
+
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
+
+
+<body>
+
+
+
+  <h2>RENT YOUR BIKE NOW!</h2>
+  <div class="sidenav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h4>ENJOY OUR SERVICES!</h4>
+    <dl>
+      <dt>service name</dt>
+      <dd>
+        <p>discription<a href="#" phone number></a></p>
+      </dd>
+      <dt>service name</dt>
+      <dd>- discription<a href="#" phone number></a></dd>
+    </dl>
+    <dl>
+      <dt>service name</dt>
+      <dd>- discription<a href="#" phone number></a></dd>
+      <dt>service name</dt>
+      <dd>- discription<a href="#" phone number></a></dd>
+    </dl>
+    <dl>
+      <dt>service name</dt>
+      <dd>- discription<a href="#" phone number></a></dd>
+      <dt>service name</dt>
+      <dd>- discription<a href="#" phone number></a></dd>
+    </dl>
+    <dl>
+      <dt>service name</dt>
+      <dd>- discription<a href="#" phone number></a></dd>
+      <dt>service name</dt>
+      <dd>- discription<a href="#" phone number></a></dd>
+    </dl>
+  </div>
+
+
+  <div class="main">
+    <div class="row">
+
+      {% for rent in Rent %}
+
+      <div class="col-sm-3">
+        <div class="card mx-2" style="width: 12rem;">
+          <img class="card-img-top" src="{{rent.image.url}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{rent.rentPerDay}}</h5>
+            <p class="card-text">{{rent.description|truncatewords:5}}</p>
+            <a href="#" class="btn btn-ghost">RENT NOW</a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <footer>
+      <div class="row">
+        <div class="col span-1-of-2">
+          <ul class="footer-nav">
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">iOS App</a></li>
+            <li><a href="#">Android App</a></li>
+          </ul>
+        </div>
+        <div class="col span-1-of-2">
+          <ul class="social-links">
+            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+            <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <p>
+          Copyright &copy; 2020 by shereif store. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+
+
+
+
+
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="{% static '//cdn.jsdelivr.net/respond/1.4.2/respond.min.js' %}"></script>
+  <script src="{% static '//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js' %}"></script>
+  <script src="{% static '//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js' %}"></script>
+  <script src="{% static 'vendors/js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'resources/js/script.js' %}"></script>
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-61026110-2', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+
+</html> -->
+
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Shereif is store service bicycle and offer spare parts one of the best of the field.">
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/normalize.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/grid.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/ionicons.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/animate.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'resources/css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'resources/css/queries.css' %}">
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+  <title>RENT</title>
+
+</head>
+<header>
+  <script type="text/javascript" src="{% static 'bootstrap.min.js' %}"></script>
+
+  <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'Home:home' %}">
+      <img src="{% static 'resources/img/logo.png' %}" width="60" height="60" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Home:home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Products:product_list' %}">Buy <span class="sr-only">(current)</span></a>
+        </li>
+
+
+
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+
+<body>
+
+  <h2>CHOOSE YOUR OWN BIKE KNOW!</h2>
+
+
+
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+
+    <h4>OUR SERVICES!</h4>
+    <dl>
+      <dt>service name</dt>
+      <dd>- discription<a href="tel:555-555-5555">phone number</a></dd>
+      <dt>service name</dt>
+      <dd>- discription<a href="tel:555-555-5555"> phone number</a></dd>
+    </dl>
+    <dl>
+      <dt>service name</dt>
+      <dd>- discription<a href="tel:555-555-5555">phone number</a></dd>
+      <dt>service name</dt>
+      <dd>- discription<a href="tel:555-555-5555"> phone number</a></dd>
+    </dl>
+    <dl>
+      <dt>service name</dt>
+      <dd>- discription<a href="tel:555-555-5555">phone number</a></dd>
+      <dt>service name</dt>
+      <dd>- discription<a href="tel:555-555-5555"> phone number</a></dd>
+    </dl>
+    <dl>
+      <dt>service name</dt>
+      <dd>- discription<a href="tel:555-555-5555">phone number</a></dd>
+      <dt>service name</dt>
+      <dd>- discription<a href="tel:555-555-5555"> phone number</a></dd>
+    </dl>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="main">
+    <button class="openbtn" onclick="openNav()">&#9776;CHECK OUR SERVICES</button>
+    <div class="container">
+      <div class="row">
+
+        {% for rent in Rent %}
+
+        <div class="col-sm-3">
+          <div class="card mx-2" style="width: 12rem;">
+            <img class="card-img-top" src="{{rent.image.url}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{rent.rentPerDay}}</h5>
+              <p class="card-text">{{rent.description|truncatewords:5}}</p>
+              <a href="#" class="btn btn-ghost">RENT NOW</a>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <footer>
+      <div class="row">
+        <div class="col span-1-of-2">
+          <ul class="footer-nav">
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">iOS App</a></li>
+            <li><a href="#">Android App</a></li>
+          </ul>
+        </div>
+        <div class="col span-1-of-2">
+          <ul class="social-links">
+            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+            <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <p>
+          Copyright &copy; 2020 by shereif store. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+  <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
+  <script src="{% static 'vendors/js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'resources/js/script.js' %}"></script>
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-61026110-2', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+  <script>/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "200px";
+      document.getElementById("main").style.marginLeft = "350px";
+    }
+
+    /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+    }</script>
+
+</body>
+
+</html>
