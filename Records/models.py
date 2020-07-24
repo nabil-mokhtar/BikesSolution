@@ -16,7 +16,7 @@ class RentRecords(models.Model):
     adminName = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.status
+        return str(self.status)
 
 
 class FixRecords(models.Model):

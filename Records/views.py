@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 
 from . import models
 from . import serializers
+from django.http import Http404
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.http import HttpResponse
@@ -12,34 +13,45 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 # Create your views here.
 from .serializers import RentRecordsserializers
+from django.core.exceptions import ObjectDoesNotExist
+from rest_framework.views import exception_handler
+from django.core.exceptions import MultipleObjectsReturned
 
 
 class RentRecordsview(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
-    def get(self,request):
-        rentRecords=models.RentRecords.objects.all()
-        serializer=RentRecordsserializers(rentRecords,many=True)
+    def get(self, request):
+        rentRecords = models.RentRecords.objects.all()
+        serializer = RentRecordsserializers(rentRecords, many=True)
         return Response(serializer.data)
 
-    def post(self,request):
-        serializer=RentRecordsserializers(data=request.data)
+    def post(self, request):
+        serializer = RentRecordsserializers(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data,status=status.HTTP_201_CREATED)
-        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class RentRecordDetails(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
-    def get_record(self,qr):
+    def get_record(self, qr):
+        record = None
         try:
-            record= models.RentRecords.objects.get(bike=qr,status=False)
+            record = models.RentRecords.objects.get(bike=qr, status=False)
+            # if(record.status == False):
+            #     record.status = True
             return record
-        except record.DoesNotExist :
-            return Response(status=status.HTTP_404_NOT_FOUND)
+        except models.RentRecords.DoesNotExist:
+            # return Response(status=)
+            # return Response(status=status.HTTP_404_NOT_FOUND)
+            raise Http404
+        # except record.DoesNotExist:
+        #     raise Http404
         except record.MultipleObjectsReturned:
             return Response(status=status.HTTP_409_CONFLICT)
 
@@ -52,18 +64,18 @@ class RentRecordDetails(APIView):
         except record.MultipleObjectsReturned:
             return Response(status=status.HTTP_409_CONFLICT)
 
-    def get(self,request,id):
-        record=self.get_recordByid(self,id)
-        serializer=RentRecordsserializers(record)
-        return Response(data=serializer.data,status=status.HTTP_200_OK)
+    def get(self, request, id):
+        record = self.get_recordByid(self, id)
+        serializer = RentRecordsserializers(record)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
 
-    def put(self,request,qr):
-        record=self.get_record(self,qr)
-        serializer=RentRecordsserializers(record)
+    def put(self, request, qr):
+        record = self.get_record(qr)
+        serializer = RentRecordsserializers(record, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data,status=status.HTTP_201_CREATED)
-        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 # class RentRecordsview(viewsets.ModelViewSet):
@@ -105,12 +117,11 @@ class FixRecordsview(viewsets.ModelViewSet):
 
     queryset = models.FixRecords.objects.all()
     serializer_class = serializers.FixRecordsserializers
-    
+
 
 class SellRecordview(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
-
 
     queryset = models.SellRecord.objects.all()
     serializer_class = serializers.SellRecordserializers

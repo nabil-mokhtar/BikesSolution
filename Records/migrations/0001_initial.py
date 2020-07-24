@@ -17,47 +17,56 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SellRecord',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('price', models.IntegerField()),
                 ('product', models.CharField(max_length=30)),
                 ('dateTime', models.DateTimeField(auto_now=True)),
                 ('notes', models.TextField()),
                 ('adminName', models.CharField(max_length=20)),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='Users.User')),
+                ('customer', models.ForeignKey(
+                    on_delete=django.db.models.deletion.PROTECT, to='Users.User')),
             ],
         ),
         migrations.CreateModel(
             name='RentRecords',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('starts', models.DateTimeField(auto_now=True)),
                 ('ends', models.CharField(max_length=30)),
-                ('status', models.BooleanField(default=False)),
+                ('status', models.BooleanField()),
                 ('note', models.CharField(max_length=50)),
                 ('price', models.IntegerField()),
                 ('adminName', models.CharField(max_length=20)),
-                ('bike', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Products.Bike')),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Users.User')),
+                ('bike', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='Products.Bike')),
+                ('customer', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='Users.User')),
             ],
         ),
         migrations.CreateModel(
             name='Noterecord',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('price', models.IntegerField()),
                 ('note', models.TextField(max_length=100)),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='Users.User')),
+                ('customer', models.ForeignKey(
+                    on_delete=django.db.models.deletion.PROTECT, to='Users.User')),
             ],
         ),
         migrations.CreateModel(
             name='FixRecords',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('price', models.IntegerField()),
                 ('dateTime', models.DateTimeField(auto_now=True)),
                 ('notes', models.TextField(max_length=100)),
                 ('adminName', models.CharField(max_length=20)),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='Users.User')),
+                ('customer', models.ForeignKey(
+                    on_delete=django.db.models.deletion.PROTECT, to='Users.User')),
             ],
         ),
     ]
