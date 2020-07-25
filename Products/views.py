@@ -6,6 +6,7 @@ from .models import Bike, Service, accessories
 from .serializers import Bikeserializers, Serviceserializers, accessoriesserializers
 from rest_framework.decorators import action
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 #import qrcode
 # Create your views here.
 
@@ -81,8 +82,12 @@ def home(request):
 
 def Product_list(request):
     Product_list = Bike.objects.all()
+
+    paginator = Paginator(Product_list, 1)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
-        'products': Product_list,
+        'products': page_obj,
     }
     return render(request, 'Products/buy.html', context)
 

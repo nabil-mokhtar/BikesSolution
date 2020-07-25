@@ -6,12 +6,88 @@ Orange color: #e67e22
 
 /* ----------------------------------------------- */
 /* BASIC SETUP */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins' sans-serif;
+}
+
+.pag
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.pagination
+{
+    position: relative;
+    background: #fff;
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+}
+
+.pagination
+{
+    list-style: none;
+    line-height: 50px;
+    margin: 0 5px;
+}
+
+.pagination li.pageNumber
+{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.pagination a
+{
+    display: block;
+    text-decoration: none;
+    color: #777;
+    font-weight: 600;
+    border-radius: 50%;
+}
+
+
+.pagination li.pageNumber:hover a,
+.pagination li.pageNumber.active a
+{
+    background: #333;
+    color: #fff;
+}
+
+.pagination li:first-child
+{
+    margin-right: 30px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.pagination li:last-child
+{
+    margin-left: 30px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
 /* ----------------------------------------------- */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins' sans-serif;
 }
 
 html,
