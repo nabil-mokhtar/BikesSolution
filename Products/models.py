@@ -2,13 +2,15 @@ from django.db import models
 
 # Create your models here.
 
+
 class Bike(models.Model):
     model = models.CharField(max_length=30)  # phoenix
     serial = models.CharField(max_length=30)  # R300
     image = models.ImageField()
     availability = models.BooleanField()  # both rent and sell
     rentability = models.BooleanField()
-    availabilityDuration = models.CharField(max_length=20)  # available for renting in 3 days
+    availabilityDuration = models.CharField(
+        max_length=20)  # available for renting in 3 days
     # used=models.BooleanField()
     description = models.TextField(max_length=300)
     sellPrice = models.IntegerField()
@@ -25,7 +27,7 @@ class Service(models.Model):
     name = models.CharField(max_length=30)
     duration = models.CharField(max_length=30)
     price = models.IntegerField()
-    notes=models.CharField(max_length=100)
+    notes = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -37,5 +39,6 @@ class accessories(models.Model):
     image = models.ImageField()
     availability = models.BooleanField()
     branche = models.CharField(max_length=30)
+
     def __str__(self):
         return self.name

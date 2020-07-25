@@ -89,16 +89,18 @@ def Product_list(request):
     context = {
         'products': page_obj,
     }
-    return render(request, 'Products/buy.html', context)
+    return render(request, 'Products/Buy_1.html', context)
 
 
 def rent(request):
     Rent_list = Bike.objects.all()
-    print(Rent_list)
+    paginator = Paginator(Rent_list, 1)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
-        'Rent': Rent_list,
+        'Rent': page_obj,
     }
-    return render(request, 'Products/rent.html', context)
+    return render(request, 'Products/Rent_1.html', context)
 
 
 def Product_detail(request, id):
