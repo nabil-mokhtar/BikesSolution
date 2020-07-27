@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-from .models import Bike, Service, accessories
+from .models import Bike, Service, accessories, BikeImage
 from .serializers import Bikeserializers, Serviceserializers, accessoriesserializers
 from rest_framework.decorators import action
 from django.http import HttpResponse
@@ -109,9 +109,11 @@ def rent(request):
 
 def Product_detail(request, id):
     Product_detail = Bike.objects.get(id=id)
+    photos = BikeImage.objects.filter(Bike=Product_detail)
     service = Service.objects.all().order_by('-id')
     context = {
         'product': Product_detail,
         'service': service,
+        'photos': photos,
     }
     return render(request, 'Products/display_product.html', context)

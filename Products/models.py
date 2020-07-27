@@ -23,6 +23,15 @@ class Bike(models.Model):
         return self.model
 
 
+class BikeImage(models.Model):
+    Bike = models.ForeignKey(
+        Bike, default=None, on_delete=models.CASCADE, related_name='images')
+    images = models.FileField(upload_to='images/')
+
+    def __str__(self):
+        return self.Bike.model
+
+
 class Service(models.Model):
     name = models.CharField(max_length=30)
     duration = models.CharField(max_length=30)

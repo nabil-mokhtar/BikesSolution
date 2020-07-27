@@ -49,6 +49,12 @@
                     <div class="col-md-12"><img class="img-thumbnail img-fluid center-block"
                             src="{{product.image.url}}"></div>
                 </div>
+                <div class="row">
+                    {% for i in photos %}
+                    <div class="col-6 col-sm-6 col-md-6"><img class="img-thumbnail img-fluid center-block"
+                            src="{{i.images.url}}"></div>
+                    {% endfor %}
+                </div>
             </div>
             <div class="col-md-5">
                 <h1>{{product.model}}</h1>

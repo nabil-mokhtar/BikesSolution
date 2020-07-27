@@ -58,7 +58,9 @@
             <div class="col-md-4 col-sm-6 col-12">
                 <div class="card shadow-lg h-70" data-bs-hover-animate="bounce"
                     style="margin: 20px;padding: 20px;background-size: auto;background-color: rgb(255,255,255);color: rgb(33,37,41);">
-                    <img class="card-img-top w-100 d-block" src="{{product.image.url}}">
+                    <div class="inner">
+                        <img class="card-img-top w-100 d-block" src="{{product.image.url}}">
+                    </div>
                     <div class="card-body">
                         <h4 class="card-title">{{product.model}}</h4>
                         <p class="card-text">{{product.description|truncatechars:50}}</p>
