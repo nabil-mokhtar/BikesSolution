@@ -3,7 +3,7 @@ from . models import Bike, accessories, Service, BikeImage
 
 
 class BikeImageAdmin(admin.StackedInline):
-    min_num = 4
+    min_num = 0
     max_num = 4
     model = BikeImage
 

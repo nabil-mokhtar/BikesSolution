@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>display_product</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static 'assets_dis/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="{% static 'assets_dis/fonts/font-awesome.min.css' %}">
@@ -68,9 +71,18 @@
                         class="fa fa-dollar"></i>{{product.rentPerMonth}}
                 </h2>
                 <br>
-                <button class="btn btn-danger btn-lg center-block" type="button"><i class="fa fa-cart-plus"></i>
+                <!-- <button class="btn btn-danger btn-lg center-block" type="button"><i class="fa fa-cart-plus"></i>
                     Add to
-                    Cart</button>
+                    Cart</button> -->
+                <h1>
+                    {% if product.rentability %}
+                    <span class="badge badge-pill badge-success btn-lg">Success</span>
+                    {% else %}
+                    <span class="badge badge-danger btn-lg">Danger</span>
+                    {% endif %}
+
+                </h1>
+
             </div>
         </div>
     </div>
@@ -118,14 +130,15 @@
                 <h4>About the company</h4>
                 <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor
                     lacus vehicula sit amet. </p>
-                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
-                            class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i
-                            class="fa fa-github"></i></a></div>
+                <div class="social-links social-icons"><a href="https://www.facebook.com/sherif4cycle/"><i
+                            class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i
+                            class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
             </div>
         </div>
     </footer>
     <script src="{% static 'assets_dis/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets_dis/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 </body>
 
 </html>

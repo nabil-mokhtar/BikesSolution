@@ -66,12 +66,12 @@
                         <h4 class="card-title">{{rent.model}}</h4>
                         <p class="card-text">{{rent.description|truncatechars:50}}</p>
 
-                        {% if rent.availability %}
+                        <!-- {% if rent.availability %} -->
                         <a href="{% url 'Home:Product_detail' rent.id %}" class="btn btn-outline-primary"
                             type="button">RENT NOW</a>
-                        {% else %}
-                        <button class="btn btn-lg btn-primary" type="button" disabled>RENT NOW</button>
-                        {% endif %}
+                        <!-- {% else %} -->
+                        <!-- <button class="btn btn-lg btn-primary" type="button" disabled>RENT NOW</button> -->
+                        <!-- {% endif %} -->
                     </div>
                 </div>
             </div>
@@ -145,9 +145,9 @@
                 <h4>About the company</h4>
                 <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor
                     lacus vehicula sit amet. </p>
-                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
-                            class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i
-                            class="fa fa-github"></i></a></div>
+                <div class="social-links social-icons"><a href="https://www.facebook.com/sherif4cycle/"><i
+                            class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i
+                            class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
             </div>
         </div>
     </footer>
