@@ -5,7 +5,9 @@ from . import models
 class Bikeserializers(serializers.ModelSerializer):
 
     image = serializers.ImageField(max_length=None, use_url=True)
-    images = serializers.StringRelatedField(many=True, use_url=True)
+    # images = serializers.StringRelatedField(many=True)
+    images = serializers.SlugRelatedField(
+        many=True, read_only=True, slug_field="image_url")
 
     class Meta:
         model = models.Bike

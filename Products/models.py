@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 
@@ -30,6 +31,10 @@ class BikeImage(models.Model):
 
     def __str__(self):
         return self.Bike.model
+
+    @property
+    def image_url(self):
+        return "{0}".format(self.images.url)
 
 
 class Service(models.Model):
