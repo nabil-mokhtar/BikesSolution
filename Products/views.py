@@ -82,30 +82,36 @@ def home(request):
 
 def Product_list(request):
     Product_list = Bike.objects.all().order_by('-id')
+    service = Service.objects.all().order_by('-id')
 
     paginator = Paginator(Product_list, 1)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
         'products': page_obj,
+        'service': service,
     }
     return render(request, 'Products/Buy_1.html', context)
 
 
 def rent(request):
     Rent_list = Bike.objects.filter(rentability=True).order_by('-id')
+    service = Service.objects.all().order_by('-id')
     paginator = Paginator(Rent_list, 1)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
         'Rent': page_obj,
+        'service': service,
     }
     return render(request, 'Products/Rent_1.html', context)
 
 
 def Product_detail(request, id):
     Product_detail = Bike.objects.get(id=id)
+    service = Service.objects.all().order_by('-id')
     context = {
-        'product': Product_detail
+        'product': Product_detail,
+        'service': service,
     }
     return render(request, 'Products/display_product.html', context)

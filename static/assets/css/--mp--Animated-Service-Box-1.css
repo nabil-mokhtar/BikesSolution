@@ -8,7 +8,7 @@
   height: 150px;
   line-height: 145px;
   border-radius: 5px;
-  background: #f16623;
+  background: #3dd9e4;
   border: 5px solid #cecece;
   border-left: none;
   border-right: none;
@@ -24,7 +24,7 @@
   width: 107px;
   height: 107px;
   border-radius: 5px;
-  background: #f16623;
+  background: #3dd9e4;
   border: 7px solid #cecece;
   border-top: none;
   border-right: none;
@@ -59,7 +59,7 @@
 }
 
 .serviceBox:hover .titleBlurb {
-  color: #f16623;
+  color: #3dd9e4;
 }
 
 .serviceBox .titleBlurb:before, .serviceBox .titleBlurb:after {
@@ -67,7 +67,7 @@
   width: 20px;
   height: 20px;
   margin: 0 auto;
-  background: linear-gradient(to right top, #f16623 48%, transparent 50%);
+  background: linear-gradient(to right top, #3dd9e4 48%, transparent 50%);
   position: absolute;
   top: -32px;
   left: 0;
@@ -140,8 +140,5 @@
   .serviceBox {
     margin-bottom: 30px;
   }
-}
-
-.serviceBox.skyblue {
 }
 
