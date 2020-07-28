@@ -84,12 +84,18 @@ def Product_list(request):
     Product_list = Bike.objects.all().order_by('-id')
     service = Service.objects.all().order_by('-id')
 
+    search_term = ''
+    if 'search' in request.GET:
+        search_term = request.GET['search']
+        Product_list = Product_list.filter(model__icontains=search_term)
+
     paginator = Paginator(Product_list, 1)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
         'products': page_obj,
         'service': service,
+        'search_term': search_term,
     }
     return render(request, 'Products/Buy_1.html', context)
 
@@ -97,12 +103,19 @@ def Product_list(request):
 def rent(request):
     Rent_list = Bike.objects.filter(rentability=True).order_by('-id')
     service = Service.objects.all().order_by('-id')
+
+    search_term = ''
+    if 'search' in request.GET:
+        search_term = request.GET['search']
+        Rent_list = Rent_list.filter(model__icontains=search_term)
+
     paginator = Paginator(Rent_list, 1)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
         'Rent': page_obj,
         'service': service,
+        'search_term': search_term,
     }
     return render(request, 'Products/Rent_1.html', context)
 

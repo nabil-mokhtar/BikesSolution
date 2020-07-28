@@ -19,15 +19,31 @@
     <link rel="stylesheet" href="{% static 'assets_dis/css/Pretty-Footer.css' %}">
     <link rel="stylesheet" href="{% static 'assets_dis/css/Product-Details.css' %}">
     <link rel="stylesheet" href="{% static 'assets_dis/css/styles.css' %}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static '/resources/favicons/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static '/resources/favicons/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static '/resources/favicons/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static '/resources/favicons/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static '/resources/favicons/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static '/resources/favicons/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static '/resources/favicons/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static '/resources/favicons/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/resources/favicons/apple-icon-180x180.png' %}">
     <link rel="icon" type="image/png" href="{% static '/resources/favicons/favicon-32x32.png' %}" sizes="32x32">
-    <link rel="icon" type="image/png" href="{% static '/resources/favicons/favicon-194x194.png' %}" sizes="194x194">
+    <!--<link rel="icon" type="image/png" href="{% static '/resources/favicons/favicon-194x194.png' %}" sizes="194x194">-->
     <link rel="icon" type="image/png" href="{% static '/resources/favicons/favicon-96x96.png' %}" sizes="96x96">
-    <link rel="icon" type="image/png" href="{% static '/resources/favicons/android-chrome-192x192.png' %}"
+    <link rel="icon" type="image/png" href="{% static '/resources/favicons/android-icon-192x192.png' %}"
         sizes="192x192">
+    <link rel="icon" type="image/png" href="{% static '/resources/favicons/favicon-16x16.png' %}" sizes="16x16">
+    <link rel="manifest" href="{% static '/resources/favicons/manifest.json' %}">
+    <link rel="shortcut icon" href="{% static '/resources/favicons/favicon.ico' %}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="{% static '/resources/favicons/ms-icon-144x144.png' %}">
+    <meta name="msapplication-config" content="{% static '/resources/favicons/browserconfig.xml' %}">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" data-aos="slide-down">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-md navigation-clean-search" data-aos="slide-down">
         <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span
                     class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><img
                 src="{% static 'assets/img/logo.png' %}" width="60" height="60">
@@ -108,10 +124,10 @@
     <footer>
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
-                <h3><a href="#">Company<span>logo </span></a></h3>
-                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a
-                        href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a
-                        href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                <h3><a href="{% url 'Home:home' %}">Company<span>logo </span></a></h3>
+                <p class="links"><a href="{% url 'Home:home' %}">Home</a><strong> · </strong><a>Blog</a><strong>
+                        · </strong><a href="https://github.com/orgs/Pharon-sTimeGate/dashboard">About</a><strong> ·
+                    </strong><a href="https://github.com/orgs/Pharon-sTimeGate/dashboard">Contact</a></p>
                 <p class="company-name">Company Name © 2020 </p>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">
@@ -131,8 +147,9 @@
                 <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor
                     lacus vehicula sit amet. </p>
                 <div class="social-links social-icons"><a href="https://www.facebook.com/sherif4cycle/"><i
-                            class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i
-                            class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+                            class="fa fa-facebook"></i></a><a><i class="fa fa-twitter"></i></a><a><i
+                            class="fa fa-linkedin"></i></a><a
+                        href="https://github.com/orgs/Pharon-sTimeGate/dashboard"><i class="fa fa-github"></i></a></div>
             </div>
         </div>
     </footer>
