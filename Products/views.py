@@ -7,6 +7,8 @@ from .serializers import Bikeserializers, Serviceserializers, accessoriesseriali
 from rest_framework.decorators import action
 from django.http import HttpResponse
 from django.core.paginator import Paginator
+from django.conf import settings
+from django.core.mail import send_mail
 #import qrcode
 # Create your views here.
 
@@ -77,6 +79,16 @@ class Accessoriesview(viewsets.ModelViewSet):
 
 
 def home(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        find_us = request.POST['find-us']
+        news = request.POST['news']
+        message = request.POST['message']
+
+        send_mail(name, message,
+                  email, [settings.EMAIL_HOST_USER])
+
     return render(request, 'Products/index.html')
 
 
