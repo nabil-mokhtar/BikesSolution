@@ -89,25 +89,35 @@ def home(request):
         send_mail(name, message,
                   email, [settings.EMAIL_HOST_USER])
 
-    return render(request, 'Products/index.html')
+    first_products = Bike.objects.all().order_by('id')
+    first_products = first_products[:3]
+
+    last_products = Bike.objects.all().order_by('-id')
+    last_products = last_products[:6]
+
+    context = {
+        'first_products': first_products,
+        'last_products': last_products,
+    }
+    return render(request, 'Products/index.html', context)
 
 
 def Product_list(request):
     Product_list = Bike.objects.all().order_by('-id')
     service = Service.objects.all().order_by('-id')
 
-    search_term = ''
-    if 'search' in request.GET:
-        search_term = request.GET['search']
-        Product_list = Product_list.filter(model__icontains=search_term)
+    # search_term = ''
+    # if 'search' in request.GET:
+    #     search_term = request.GET['search']
+    #     Product_list = Product_list.filter(model__icontains=search_term)
 
-    paginator = Paginator(Product_list, 1)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    # paginator = Paginator(Product_list, 1)
+    # page_number = request.GET.get('page')
+    # page_obj = paginator.get_page(page_number)
     context = {
-        'products': page_obj,
+        'products': Product_list,
         'service': service,
-        'search_term': search_term,
+        # 'search_term': search_term,
     }
     return render(request, 'Products/Buy_1.html', context)
 
@@ -133,6 +143,10 @@ def rent(request):
 
 
 def Product_detail(request, id):
+
+    first_products = Bike.objects.all().order_by('id')
+    first_products = first_products[:3]
+
     Product_detail = Bike.objects.get(id=id)
     photos = BikeImage.objects.filter(Bike=Product_detail)
     service = Service.objects.all().order_by('-id')
@@ -140,5 +154,22 @@ def Product_detail(request, id):
         'product': Product_detail,
         'service': service,
         'photos': photos,
+        'first_products': first_products,
     }
     return render(request, 'Products/display_product.html', context)
+
+
+def contact(request):
+    return render(request, 'Products/contact.html')
+
+
+def account(request):
+    return render(request, 'Products/sign-in.html')
+
+
+def addtocart(request):
+    return render(request, 'Products/cart.html')
+
+
+def error_404_view(request, exception):
+    return render(request, 'Products/page404.html')

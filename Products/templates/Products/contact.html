@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1 style="margin-bottom:30px;">We Are Always Here To Help.</h1>
+      <form class="" action="index.html" method="post">
+        <label for="">Name</label>
+        <input type="text" name="Name" placeholder="Your Full Name">
+        <label for="">Email</label>
+        <input type="email" name="email" placeholder="Your Email">
+        <label for="">Massage</label>
+        <textarea name="Massage" rows="1" cols="15" placeholder="Your Massage"></textarea>
+        <input type="submit" name="signup-button" value="Send">
+      </form>
+    </div>
+    <div class="col-lg-6">
+      <img src="{% static 'images/accessories.jpeg' %}" alt="accessories img" style="height:500px;">
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block Script %}
+
+<script type="text/javascript">
+  var LoginForm = document.getElementById("LoginForm");
+  var RegForm = document.getElementById("RegisterForm");
+  var Indicator = document.getElementById("Indicator")
+
+  function register() {
+    RegisterForm.style.transform = "translateX(0px)";
+    LoginForm.style.transform = "translateX(0px)";
+    Indicator.style.transform = "translateX(100px)";
+  }
+
+  function login() {
+    RegisterForm.style.transform = "translateX(300px)";
+    LoginForm.style.transform = "translateX(300px)";
+    Indicator.style.transform = "translateX(0px)";
+  }
+
+</script>
+
+{% endblock Script %}

@@ -1,0 +1,25 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>404 Page</title>
+    <link rel="stylesheet" href="{% static 'page_404/style.css' %}">
+</head>
+
+<body>
+    <div class="error">
+        <div class="sky">
+            <h2><span>4</span><span>0</span><span>4</span></h2>
+            <div class="grass"></div>
+            <img src="{% static 'page_404/plane.png' %}" alt="plane" class="plane">
+        </div>
+        <div class="field">
+            <h2>Opps...looks like you got lost.</h2>
+            <a href="#">Go Home</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -15,5 +15,8 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('product', views.Product_list, name='product_list'),
     path('Rent', views.rent, name='rent_list'),
-    path('<int:id>', views.Product_detail, name='Product_detail'),
+    path('product/<int:id>', views.Product_detail, name='Product_detail'),
+    path('contactus', views.contact, name='contact'),
+    path('account', views.account, name='account'),
+    path('Cart', views.addtocart, name='cart'),
 ]
