@@ -28,13 +28,27 @@
 
     </div>
 
-    <div class="page-btn">
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>&#8594;</span>
-    </div>
+    {% if products.has_other_pages %}
+    <nav
+        class="text-center border rounded-0 border-white shadow d-flex d-sm-flex d-md-flex d-lg-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center">
+        <ul class="pagination">
+            {% if products.has_previous %}
+            <li
+                class="page-item text-center border rounded-circle d-lg-flex justify-content-lg-center align-items-lg-center">
+                <a class="page-link" href="?page={{products.previous_page_number}}" aria-label="Previous"><span
+                        aria-hidden="true">«</span></a></li>
+            {% endif %}
+            {% for i in products.paginator.page_range %}
+            <li class="page-item border rounded-circle"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+            {% endfor %}
+            {% if products.has_next %}
+            <li class="page-item border rounded-circle"><a class="page-link" href="?page={{products.next_page_number}}"
+                    aria-label="Next"><span aria-hidden="true">»</span></a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
 </div>
 
 {% endblock content %}

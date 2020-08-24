@@ -111,11 +111,11 @@ def Product_list(request):
     #     search_term = request.GET['search']
     #     Product_list = Product_list.filter(model__icontains=search_term)
 
-    # paginator = Paginator(Product_list, 1)
-    # page_number = request.GET.get('page')
-    # page_obj = paginator.get_page(page_number)
+    paginator = Paginator(Product_list, 1)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
-        'products': Product_list,
+        'products': page_obj,
         'service': service,
         # 'search_term': search_term,
     }
